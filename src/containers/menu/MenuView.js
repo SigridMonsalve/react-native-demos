@@ -42,34 +42,14 @@ class Menu extends Component {
   render = () => (
     <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
       <Text style={[styles.title, styles.whiteText]}> React Native Demos </Text>
-        <Spacer size={10} />
-        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-          <View style={[AppStyles.flex1]}>
-            <Button
-              title={'Social Cards'}
-              icon={{ name: 'face' }}
-              onPress={Actions.login}
-              backgroundColor={'#DAA520'}
-            />
-          </View>
-        </View>
-        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-          <View style={[AppStyles.flex1]}>
-            <Button
-              title={'Social Cards'}
-              icon={{ name: 'face' }}
-              onPress={Actions.signUp}
-              backgroundColor={'#DAA520'}
-            />
-          </View>
-        </View>
+      <Spacer size={10} />
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
           <Button
             title={'Social Cards'}
             icon={{ name: 'face' }}
-            onPress={Actions.socialCards}
-            backgroundColor={'#DAA520'}
+            onPress={Actions.socialCardsDemo}
+            backgroundColor={'#EDD400'}
           />
         </View>
       </View>
@@ -81,7 +61,7 @@ class Menu extends Component {
           <Button
             title={'Weather App'}
             icon={{ name: 'wb-sunny' }}
-            onPress={Actions.weatherApp}
+            onPress={Actions.weatherAppDemo}
             backgroundColor={'#75D4F4'}
           />
         </View>
@@ -94,7 +74,7 @@ class Menu extends Component {
           <Button
             title={'Hacker Hunt'}
             icon={{ name: 'developer-board' }}
-            onPress={Actions.hackerHunt}
+            onPress={Actions.hackerHuntDemo}
             backgroundColor={'#FF9E0C'}
           />
         </View>
@@ -107,7 +87,7 @@ class Menu extends Component {
           <Button
             title={'Calculator'}
             icon={{ name: 'dialpad' }}
-            onPress={Actions.calculator}
+            onPress={Actions.calculatorDemo}
             backgroundColor={'#F2274F'}
           />
         </View>
@@ -120,7 +100,7 @@ class Menu extends Component {
           <Button
             title={'Github Issues'}
             icon={{ name: 'people' }}
-            onPress={Actions.githubIssues}
+            onPress={Actions.githubIssuesDemo}
             backgroundColor={'#212121'}
           />
         </View>
@@ -140,12 +120,12 @@ class Menu extends Component {
           <Button
             small
             title={'Random'}
-            onPress={() => console.log([
-              Actions.githubIssues,
-              Actions.socialCards,
-              Actions.weatherApp,
-              Actions.hackerHunt,
-              Actions.calculator][Math.floor(Math.random()*5)])}
+            onPress={[
+              Actions.githubIssuesDemo,
+              Actions.socialCardsDemo,
+              Actions.weatherAppDemo,
+              Actions.hackerHuntDemo,
+              Actions.calculatorDemo][Math.floor(Math.random()*5)]}
             raised={false}
             backgroundColor={'rgba(255,255,255,0.2)'}
           />
