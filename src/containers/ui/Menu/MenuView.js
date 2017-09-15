@@ -21,7 +21,7 @@ import { AppStyles, AppSizes } from '@theme/';
 import { Spacer, Text, Button } from '@ui/';
 
 /* Styles ==================================================================== */
-const MENU_BG_COLOR = '#263137';
+const MENU_BG_COLOR = '#eaeaea';
 
 const styles = StyleSheet.create({
   backgroundFill: {
@@ -140,7 +140,7 @@ class Menu extends Component {
    * Build the Menu List
    */
   menuList = () => {
-    // Determine which menu to use - authenticated user menu or unauthenicated version?
+    // Determine which menu to use - menud user menu or unauthenicated version?
     let menu = this.props.unauthMenu;
     if (this.props.user && this.props.user.email) menu = this.props.authMenu;
 

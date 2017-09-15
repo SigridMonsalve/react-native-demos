@@ -145,9 +145,9 @@ export function signUp(formData = {}) {
 }
 
 /**
-  * Reset Password
+  * Social Cards
   */
-export function resetPassword(formData = {}) {
+export function socialCards(formData = {}) {
   if (Firebase === null) {
     return () => new Promise((resolve, reject) =>
       reject({ message: ErrorMessages.invalidFirebase }));
@@ -158,9 +158,9 @@ export function resetPassword(formData = {}) {
 }
 
 /**
-  * Update Profile
+  * Weather App
   */
-export function updateProfile(formData = {}) {
+export function weatherApp(formData = {}) {
   if (Firebase === null) {
     return () => new Promise((resolve, reject) =>
       reject({ message: ErrorMessages.invalidFirebase }));
@@ -184,6 +184,86 @@ export function updateProfile(formData = {}) {
       });
 }
 
+/**
+  * Calculator
+  */
+export function calculator(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const email = formData.Email || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
+  // Set the email against user account
+  return () => Firebase.auth().currentUser
+    .updateEmail(email)
+      .then(() => {
+        // Then update user in DB
+        FirebaseRef.child(`users/${UID}`).update({
+          firstName, lastName,
+        });
+      });
+}
+
+/**
+  * Github Issues
+  */
+export function githubIssues(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const email = formData.Email || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
+  // Set the email against user account
+  return () => Firebase.auth().currentUser
+    .updateEmail(email)
+      .then(() => {
+        // Then update user in DB
+        FirebaseRef.child(`users/${UID}`).update({
+          firstName, lastName,
+        });
+      });
+}
+
+/**
+  * Hacker Hunt
+  */
+export function hackerHunt(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const email = formData.Email || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
+  // Set the email against user account
+  return () => Firebase.auth().currentUser
+    .updateEmail(email)
+      .then(() => {
+        // Then update user in DB
+        FirebaseRef.child(`users/${UID}`).update({
+          firstName, lastName,
+        });
+      });
+}
 /**
   * Logout
   */

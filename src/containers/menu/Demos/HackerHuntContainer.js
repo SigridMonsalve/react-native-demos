@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  submit: UserActions.resetPassword,
+  submit: UserActions.hackerHunt,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormRender);

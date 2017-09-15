@@ -4,7 +4,7 @@
 /* global it expect */
 import 'react-native';
 
-import LoginContainer from '@containers/auth/Forms/LoginContainer';
+import LoginContainer from '@containers/menu/Demos/LoginContainer';
 
 // Check if FormContainer is created correctly
 it('LoginContainer is created correctly', () => {

@@ -13,13 +13,16 @@ import * as UserActions from '@redux/user/actions';
 // The component we're mapping to
 import MenuRender from './MenuView';
 
-// Authenticated User Menu
+// Menud User Menu
 const authMenu = [
-  { title: 'Update Profile', onPress: () => { Actions.updateProfile(); } },
-  { title: 'Change Password', onPress: () => { Actions.passwordReset(); } },
+  { title: 'Social Cards Demo', onPress: () => { Actions.socialCards(); } },
+  { title: 'Hacker Hunt Demo', onPress: () => { Actions.hackerHunt(); } },
+  { title: 'Github Issues Demo', onPress: () => { Actions.githubIssues(); } },
+  { title: 'Weather App Demo', onPress: () => { Actions.weatherApp(); } },
+  { title: 'Calculator Demo', onPress: () => { Actions.calculator(); } },
 ];
 
-// Unauthenticated User Menu
+// Unmenud User Menu
 const unauthMenu = [
   { title: 'Login', onPress: () => { Actions.login(); } },
   { title: 'Sign Up', onPress: () => { Actions.signUp(); } },

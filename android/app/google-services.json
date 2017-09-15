@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "545228095466",
+    "firebase_url": "https://react-native-demos-d4376.firebaseio.com",
+    "project_id": "react-native-demos-d4376",
+    "storage_bucket": "react-native-demos-d4376.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545228095466:android:0c6d4133f889b318",
+        "android_client_info": {
+          "package_name": "com.rndemos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545228095466-e5vb79ob9601rlr6nnu2ab3ugdmgtagb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW03MIcQP9LJTnYn18Dec7pGuf-Ssf0CE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

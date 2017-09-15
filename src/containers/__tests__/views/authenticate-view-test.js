@@ -6,11 +6,11 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import AuthenticateView from '@containers/auth/AuthenticateView';
+import MenuView from '@containers/menu/MenuView';
 
-it('AuthenticateView renders correctly', () => {
+it('MenuView renders correctly', () => {
   const tree = renderer.create(
-    <AuthenticateView />,
+    <MenuView />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
