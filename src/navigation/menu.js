@@ -15,9 +15,9 @@ import Menu from '@containers/menu/MenuView';
 import LoginForm from '@containers/menu/Demos/LoginContainer';
 import SignUpForm from '@containers/menu/Demos/SignUpContainer';
 import SocialCardsDemo from '@containers/menu/Demos/SocialCardsContainer';
-import WeatherAppDemo from '@containers/menu/Demos/WeatherAppContainer';
+import WeatherAppDemo from '@containers/menu/Demos/WeatherApp';
 import GithubIssuesDemo from '@containers/menu/Demos/GithubIssuesContainer';
-import HackerHuntDemo from '@containers/menu/Demos/HackerHuntContainer';
+import HackerHuntDemo from '@containers/menu/Demos/HackerHunt';
 import CalculatorDemo from '@containers/menu/Demos/CalculatorContainer';
 
 /* Routes ==================================================================== */
