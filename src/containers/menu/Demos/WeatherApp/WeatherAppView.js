@@ -39,24 +39,24 @@ const styles = StyleSheet.create({
 
 /* Component ==================================================================== */
 class WeatherAppView extends Component {
-  // componentWillMount() {
-  //   console.log('mounting')
-  //   console.log(URL)
-  //   fetch(URL, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     // body: JSON.stringify({
-  //     //   firstParam: 'yourValue',
-  //     //   secondParam: 'yourOtherValue',
-  //     // })
-  //   })
-  //   .then((response) => response.json())
-  //   .then((responseJson) => console.log(responseJson))
-  //   .catch((error) => { console.error(error) })
-  // }
+  componentWillMount() {
+    console.log('mounting')
+    console.log(URL)
+    fetch(URL, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      // body: JSON.stringify({
+      //   firstParam: 'yourValue',
+      //   secondParam: 'yourOtherValue',
+      // })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => console.log(responseJson))
+    .catch((error) => { console.error(error) })
+  }
 
   render() {
     const dummyData = [

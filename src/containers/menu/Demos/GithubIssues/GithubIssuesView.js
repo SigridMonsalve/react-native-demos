@@ -21,48 +21,11 @@ import { Actions } from 'react-native-router-flux'
 import { AppStyles, AppSizes } from '@theme/'
 
 // Components
-import { Button } from '@ui/';
-import SinglePost from './SinglePost'
+import { Loading } from '@components/general/Loading'
+import { Button } from '@ui/'
+import SingleIssue from './SingleIssue'
 
 /* Styles ==================================================================== */
-const HEIGHT = AppStyles.windowSize.height
-const TOPICS = [
-  {
-    name: 'Development',
-    icon: 'healing',
-  },{
-    name: 'System',
-    icon: 'local-library',
-  },{
-    name: 'Tools',
-    icon: 'build',
-  },{
-    name: 'Data science',
-    icon: 'memory',
-  },{
-    name: 'Blockchain',
-    icon: 'link',
-  },{
-    name: 'Mobile',
-    icon: 'developer-mode',
-  },{
-    name: 'Awesome lists',
-    icon: 'stars',
-  },{
-    name: 'Social',
-    icon: 'people',
-  },{
-    name: 'Visual',
-    icon: 'format-paint',
-  },{
-    name: 'Open source',
-    icon: 'free-breakfast',
-  },{
-    name: 'All topics',
-    icon: 'select-all',
-  },
-]
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -70,11 +33,15 @@ const styles = StyleSheet.create({
   button: {
     margin: 1,
     height: 45,
+  },
+  blueText: {
+    color: '#004ba8',
+    margin: 10,
   }
 });
 
 /* Component ==================================================================== */
-class HackerHuntView extends Component {
+class GithubIssuesView extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -83,7 +50,7 @@ class HackerHuntView extends Component {
     }
   }
   componentWillMount() {
-  fetch('https://hackerhunt.co/api/daily/0', {
+  fetch('https://api.github.com/repos/facebook/react-native/issues', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -95,30 +62,22 @@ class HackerHuntView extends Component {
       // })
     })
     .then((response) => response.json())
-    .then((responseJson) => this.setState({ data: responseJson.data, needsFetch: false}))
+    .then((responseJson) => this.setState({ data: responseJson, needsFetch: false }))
     .catch((error) => { console.error(error) })
   }
   render() {
+    const { data, needsFetch } = this.state
     return (
       <View style={[styles.container]}>
-        <ScrollView horizontal bounce>
-        {TOPICS.map((i, ix) => (
-          <View style={[styles.button]} key={ix}>
-            <Button
-              title={i.name}
-              icon={{name: i.icon}}
-              backgroundColor={'#455'}
-            />
-          </View>)
-        )}
-        </ScrollView>
-        {!this.state.needsFetch && <FlatList
-          data={this.state.data}
-          renderItem={({item}) => <SinglePost key={item.key} post={item} />}/>}
+        {!needsFetch && <Text style={[styles.blueText]}>{data[0].repository_url.slice(29)}</Text>}
+        {!needsFetch
+          ? <FlatList data={data} renderItem={({item}) => <SingleIssue key={item.key} issue={item} />}/>
+          : <View style={[styles.container]}><Text>Loading</Text></View>
+        }
       </View>
     )
   }
 }
 
 /* Export Component ==================================================================== */
-export default HackerHuntView;
+export default GithubIssuesView;

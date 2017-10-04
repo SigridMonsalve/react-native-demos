@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: AppSizes.screen.width,
   },
   whiteText: {
-    color: '#FFF',
+    color: '#3c4859',
   },
   title: {
     fontSize: 24,
@@ -42,6 +42,7 @@ class Menu extends Component {
   render = () => (
     <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
       <Text style={[styles.title, styles.whiteText]}> React Native Demos </Text>
+      <Spacer size={10} />
       <Spacer size={10} />
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
@@ -127,7 +128,7 @@ class Menu extends Component {
               Actions.hackerHuntDemo,
               Actions.calculatorDemo][Math.floor(Math.random()*5)]}
             raised={false}
-            backgroundColor={'rgba(255,255,255,0.2)'}
+            backgroundColor={'#3c4859'}
           />
         </View>
         <View style={[AppStyles.flex1]} />

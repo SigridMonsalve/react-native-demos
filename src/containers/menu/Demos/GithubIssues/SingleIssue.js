@@ -50,15 +50,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   greenText: {
-    color: '#31e981',
+    color: '#279f43',
     fontWeight: 'bold',
-  }
-
+  },
 });
 
 /* Component ================================================================= */
-const SinglePost = ({ post }) => {
-  const age = (Date.now() - post.date * 1000) / 1000 / 60 / 60
+const SingleIssue = ({ issue }) => {
+  const age = (Date.now() - Date.parse(issue.created_at)) / 1000 / 60 / 60
   const ageString = age >= 48
   ? `${Math.ceil(age / 24)} days ago`
   : age === 24
@@ -71,27 +70,27 @@ const SinglePost = ({ post }) => {
           ? `${Math.ceil(age * 60)} minutes ago`
             : `A minute ago`
   return (
-  <View style={[styles.container]} key={post.id}>
+  <View style={[styles.container]} key={issue.id}>
     <View style={[styles.column]}>
       <View style={[styles.row]}>
-        <Icon color='#31e981' name='arrow-upward' />
-        <Text style={[styles.greenText]}>{post.votes}</Text>
+        <Icon color='#279f43' name='info-outline' />
+        <Text style={[styles.greenText]}>{issue.state}</Text>
       </View>
       <View style={[styles.row]}>
-        <Icon name='textsms' />
-        <Text>{post.comments}</Text>
+        <Icon color='#455' name='textsms' />
+        <Text>{issue.comments}</Text>
       </View>
     </View>
     <View style={[styles.column, styles.col3]}>
-      <Text style={[styles.title]} /*onPress={() => Linking.openUrl(post.link)}*/>{post.title}</Text>
-      <Text>{post.desc}</Text>
-      <Text>{ageString} by {post.author}</Text>
-      <ScrollView horizontal style={{paddingVertical: 5}}>
-        {post.tags.split(',').map((i, ix) => <Text key={ix} style={[styles.tag]}>{i}</Text>)}
-      </ScrollView>
+      <Text
+        style={[styles.title]}
+        /*onPress={() => Linking.openUrl(issue.link)}*/>
+        {issue.title}
+      </Text>
+      <Text>#{issue.number} opened {ageString} by {issue.user.login}</Text>
     </View>
   </View>
 )}
 
 /* Export Component ========================================================== */
-export default SinglePost;
+export default SingleIssue;
